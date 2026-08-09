@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ByteWatch Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🔎 ByteWatch</h1>
+
+    <p>
+        Autonomous AI Developer Advocate
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <!-- DASHBOARD STATS -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <p class="stat-label">
+                    Agent Status
+                </p>
+
+                <h2 class="online">
+                    ● Autonomous
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📰
+            </div>
+
+            <div>
+
+                <p class="stat-label">
+                    Total Intelligence
+                </p>
+
+                <h2 id="totalPosts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🕒
+            </div>
+
+            <div>
+
+                <p class="stat-label">
+                    Latest Update
+                </p>
+
+                <h2 id="latestUpdate">
+                    Loading...
+                </h2>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- AGENT INFORMATION -->
+
+    <section class="status-card">
+
+        <h2>
+            Agent Information
+        </h2>
+
+        <p>
+
+            <strong>
+                Agent ID:
+            </strong>
+
+            <span id="agentId">
+                Loading...
+            </span>
+
+        </p>
+
+    </section>
+
+
+
+    <!-- POSTS -->
+
+    <section class="posts-section">
+
+
+        <div class="section-title">
+
+            <h2>
+                Latest Intelligence
+            </h2>
+
+
+            <button
+                onclick="loadPosts()"
+            >
+                🔄 Refresh
+            </button>
+
+        </div>
+
+
+        <div id="posts">
+
+            Loading posts...
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
