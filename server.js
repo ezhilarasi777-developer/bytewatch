@@ -278,10 +278,6 @@ app.get("/health", (req, res) => {
 // START SERVER
 // ========================================
 
-app.listen(PORT, () => {
-
-    console.log(
-        `\n🚀 ByteWatch running on port ${PORT}`
-    );
-
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`\n🚀 ByteWatch running on port ${PORT}`);
 });
