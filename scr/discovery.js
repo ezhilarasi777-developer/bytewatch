@@ -27,7 +27,7 @@ export async function discoverTopics() {
 
             const result = await parser.parseURL(feed.url);
 
-            for (const item of result.items.slice(0, 5)) {
+            for (const item of result.items.slice(0, 15)) {
 
                 if (!item.title || !item.link) {
                     continue;

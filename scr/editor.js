@@ -39,7 +39,13 @@ const irrelevantWords = [
     "party",
     "sports"
 ];
-
+function normalizeTitle(title) {
+    return (title || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+}
 export function judgeTopic(topic, memory) {
 
     const combinedText = (
@@ -119,7 +125,7 @@ export function judgeTopic(topic, memory) {
             (Date.now() - publishedTime) /
             (1000 * 60 * 60);
 
-        if (ageHours <= 72) {
+        if (ageHours <= 168) {
 
             score += 30;
 
@@ -166,10 +172,18 @@ export function judgeTopic(topic, memory) {
     // DUPLICATE PROTECTION
     // ========================================
 
-    const duplicate =
-        memory.posts.some(post =>
-            post.sourceUrl === topic.url
-        );
+    const topicTitle = normalizeTitle(topic.title);
+
+const duplicate = memory.posts.some(post => {
+
+    const sameUrl =
+        post.sourceUrl === topic.url;
+
+    const sameTitle =
+        normalizeTitle(post.topic) === topicTitle;
+
+    return sameUrl || sameTitle;
+});
 
     if (duplicate) {
 
