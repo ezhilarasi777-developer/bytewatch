@@ -35,5 +35,5 @@ export function startScheduler(agent) {
 
         console.log("✅ Scheduled autonomous cycle finished");
 
-    }, 30 * 60 * 1000);
+    },  60 * 1000);
 }

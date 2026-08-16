@@ -61,24 +61,52 @@ let agent = loadAgent();
 
 
 // ========================================
-// START EXISTING AGENT AUTOMATICALLY
+// LOAD OR CREATE AGENT
 // ========================================
 
-if (agent) {
+if (!agent) {
+
+    agent = {
+
+        agentId: crypto.randomUUID(),
+
+        persona: {
+
+            name: "ByteWatch",
+
+            domain: "AI Developer Advocacy"
+
+        },
+
+        initializedAt:
+            new Date().toISOString()
+
+    };
+
+    saveAgent(agent);
+
+    console.log(
+        `\n🤖 New ByteWatch agent created`
+    );
+
+} else {
 
     console.log(
         `\n🤖 Existing agent loaded: ${agent.persona.name}`
     );
 
-    console.log(
-        `🆔 Agent ID: ${agent.agentId}`
-    );
-
-    // Start autonomous operation
-    startScheduler(agent);
 }
 
+console.log(
+    `🆔 Agent ID: ${agent.agentId}`
+);
 
+
+// ========================================
+// START AUTONOMOUS OPERATION
+// ========================================
+
+startScheduler(agent);
 // ========================================
 // INITIALIZE AGENT
 // ========================================
