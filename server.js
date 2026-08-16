@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import crypto from "crypto";
 import fs from "fs";
+import cors from "cors";
 
 import { startScheduler } from "./scr/scheduler.js";
 import { readMemory } from "./scr/memory.js";
@@ -10,9 +11,12 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors({
+    origin: "https://bytewatch-76de0.web.app"
+}));
+
 app.use(express.json());
 app.use(express.static("public"));
-
 const PORT = process.env.PORT || 3000;
 
 const agentFile = "./agent.json";
