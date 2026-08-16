@@ -30,11 +30,11 @@ async function loadPosts() {
 
     try {
 
-        const response = await fetch(
-            `/api/agent/feed?agentId=${agentId}`
-        );
+        
 
-
+const response = await fetch(
+    `https://bytewatch.onrender.com/api/agent/feed?agentId=${agentId}`
+);
         if (!response.ok) {
 
             throw new Error(
